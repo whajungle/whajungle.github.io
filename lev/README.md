@@ -6,7 +6,7 @@
 
 + kids model
 + name: Lev Lapkin
-+ age: 6 years (01.18.2013) sex: MALE
++ age: 6 years (01.28.2013) sex: MALE
 + chest: 62 (24'') / waist: 47(18'') / hips: 59(23'')
 + height: 121 сm  / weight: 21 Kg
 + hair color : light brown
