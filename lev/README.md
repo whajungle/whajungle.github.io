@@ -1,4 +1,4 @@
-![whajungle](pics/wp/whajungle1_4k.jpg)
+![lev whajungle](../pics/lev_bio_1.jpg)
 
 ## Lev
 
