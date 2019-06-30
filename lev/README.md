@@ -11,20 +11,13 @@
 + year color: hazel - green
 + locations: Bangkok, Thailand, China, Russia
 
-## Lev - about me - in russian
+## introduce yourself
 
-+ https://youtu.be/PxieuGIF4bM
-+ https://youtu.be/GKJjA0MbQ88
-+ https://youtu.be/xDk9N5yVGio
-+ https://youtu.be/6jaIA7ERQ5g
-+ https://youtu.be/DF40nIsMWEA
-+ https://youtu.be/pvl6rj0MsCo
-+ https://youtu.be/hxuHahqJdvY
-+ https://youtu.be/9zMXJkzU8OU
-+ https://youtu.be/OScfGU1K5Hc
-+ https://youtu.be/xqjnZzEejQA
-+ https://youtu.be/u_sG1-Je1-w
-+ https://youtu.be/zCLhMCFs6j4
++ [Lev - about me - eng #1](https://youtu.be/md5i8-vGwKU)
+<iframe width="560" height="315" src="https://www.youtube.com/embed/md5i8-vGwKU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
++ [Lev - about me - rus #2](https://youtu.be/lZ232HDoOF0)
+<iframe width="560" height="315" src="https://www.youtube.com/embed/lZ232HDoOF0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 [http://whajungle.github.io](http://whajungle.github.io)
 
