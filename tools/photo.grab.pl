@@ -5,10 +5,20 @@ use common::sense;
 ## hyphop ##
 
 #https://photos.app.goo.gl/VWQ63ZYhNPAA6Maq8
+our $mode;
+
+sub WIKI(){ 1 }
+
+our $img_num=0;
 
 sub parse_{
     if ( /\[\"(.+?)\"\,\[\"(.+?)\",(\d+),(\d+)/ ) {
 #	warn "[i] $2 - $3 x $4";
+	if ( $mode == WIKI ) {
+	    print "![$img_num]($2)\n";
+	    $img_num++;
+	    return
+	}
 	print "$2\n";
     }
 }
@@ -29,6 +39,7 @@ my @SRC;
 my @FILES;
 my @args;
 
+
 for (@ARGV) {
     if (/^http/ ) {
 	push @SRC => $_;
@@ -41,8 +52,14 @@ for (@ARGV) {
     push @args, $_;
 }
 
-warn "[i] args: @args";
-warn "[i] src: @SRC + @FILES";
+
+
+for (@args) {
+    $mode = WIKI if $_ == '-w';
+}
+
+warn "[i] args: @args // MODE: $mode\n";
+warn "[i] src: @SRC + @FILES\n";
 
 for (@SRC) {
     my $c;
