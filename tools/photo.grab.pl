@@ -10,12 +10,17 @@ our $mode;
 sub WIKI(){ 1 }
 
 our $img_num=0;
+our $img_width='';
+our $img_height='';
 
 sub parse_{
     if ( /\[\"(.+?)\"\,\[\"(.+?)\",(\d+),(\d+)/ ) {
 #	warn "[i] $2 - $3 x $4";
+
 	if ( $mode == WIKI ) {
-	    print "![$img_num]($2)\n";
+	    my $W='';
+	    $W = "=w$img_width" if ($img_width);
+	    print "![$img_num]($2$W)\n";
 	    $img_num++;
 	    return
 	}
@@ -54,8 +59,13 @@ for (@ARGV) {
 
 
 
-for (@args) {
-    $mode = WIKI if $_ == '-w';
+for (0..$#args-1) {
+    if ( $args[$_] == '-w' ) {
+	$mode = WIKI;
+	if ( $args[$_+1] =~ /^\d+$/ ) {
+	    $img_width=$args[$_+1];
+	}
+    }
 }
 
 warn "[i] args: @args // MODE: $mode\n";
