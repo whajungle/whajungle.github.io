@@ -17,8 +17,8 @@
 + locations: Bangkok, Thailand, China, Russia
 + lang: english, russian, thai
 + web: http://whajungle.github.io/lev
-+ video: [about me - eng #1](https://youtu.be/md5i8-vGwKU)
-+ video: [about me - rus #2](https://youtu.be/lZ232HDoOF0)
++ video: [about me - rus #1](https://youtu.be/md5i8-vGwKU)
++ video: [about me - eng #1](https://youtu.be/lZ232HDoOF0)
 + photo albums [Lev photos](albums)
 + YouTube [WhaJungle](https://www.youtube.com/channel/UC9cdbA_U-ZebuqkDYFeRo8A)
 
@@ -64,13 +64,13 @@ https://photos.app.goo.gl/VWQ63ZYhNPAA6Maq8
 
 ## introduce
 
-+ [Lev - about me - eng #1](https://youtu.be/md5i8-vGwKU)
-
-<iframe width="100%" height="420" src="https://www.youtube.com/embed/md5i8-vGwKU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-+ [Lev - about me - rus #2](https://youtu.be/lZ232HDoOF0)
++ [Lev - about me - eng #2](https://youtu.be/lZ232HDoOF0)
 
 <iframe width="100%" height="420" src="https://www.youtube.com/embed/lZ232HDoOF0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
++ [Lev - about me - rus #1](https://youtu.be/md5i8-vGwKU)
+
+<iframe width="100%" height="420" src="https://www.youtube.com/embed/md5i8-vGwKU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 <hr>
 
