@@ -24,13 +24,14 @@
 
 <hr>
 
++ [more Lev photo albums](albums)
++ [YouTube channel](https://www.youtube.com/channel/UC9cdbA_U-ZebuqkDYFeRo8A)
+
 ## Links
 
-+ https://photos.app.goo.gl/7pdAZEjizEPMZpqCA
-+ https://photos.app.goo.gl/KRUfnzZkuy7tTJKo8
-+ https://photos.app.goo.gl/H7jEnLwFRzqNavHy8
-+ https://www.youtube.com/channel/UC9cdbA_U-ZebuqkDYFeRo8A
-
++ [photos-album #1](https://photos.app.goo.gl/7pdAZEjizEPMZpqCA)
++ [photos-albums #2](https://photos.app.goo.gl/KRUfnzZkuy7tTJKo8)
++ [photos-albums #3](https://photos.app.goo.gl/H7jEnLwFRzqNavHy8)
 
 [http://whajungle.github.io](http://whajungle.github.io)
 

@@ -25,6 +25,8 @@ https://www.publicalbum.org/blog/embedding-google-photos-albums
   <img data-src="https://lh3.googleusercontent.com/er8GoTY3AugR-NFyLGj0XhKW-yVMWaN7941rIyAxCzB3vAsRi3tdd4h6aGJY2kEW0TZTfgaOS4ATF-a3dN72az20JpQelJno6nnDXWOO96SlGBEA7VPdSM0CajCc7iHcT02zoCMS2A=w1920-h1080" src="" alt="" />
 </div>
 
+https://photos.app.goo.gl/KRUfnzZkuy7tTJKo8
+
 ## Lev album #3 2019
 
 <script src="https://cdn.jsdelivr.net/npm/publicalbum@latest/dist/pa-embed-player.min.js" async></script>
@@ -43,6 +45,8 @@ https://www.publicalbum.org/blog/embedding-google-photos-albums
   <img data-src="https://lh3.googleusercontent.com/lYouk5z_7-P8RR0ovDsBtgT0l8bTvxkTUtAHM4VmceccNOrG4zKLZK5HPw8FAokLrPNmaga8ojc8_hahpCbI3NpKMv6V6Bzjo9bBUKnrJUcm-aO_4C5zd24AfkiTg9ttbKAs0Wkp=w1920-h1080" src="" alt="" />
   <img data-src="https://lh3.googleusercontent.com/8AhHWeW-KH-NO3adtZ_rUc_tCyKqlgPPsXv0OFUm-SCd75Td16r8nF2lzJZJm1_KJmsIy6vIOxBLI0wh8a_uFjhV7M-e6jt1uydXoN72NbzvGGu6AobmTr64C6yH295tU-Qs_jxW=w1920-h1080" src="" alt="" />
 </div>
+
+https://photos.app.goo.gl/7pdAZEjizEPMZpqCA
 
 ## Lev album #2 2019
 
@@ -70,6 +74,8 @@ address: 34/2 m1 Koh Kood, TRAT, 23000, Thailand">
   <img data-src="https://lh3.googleusercontent.com/q2_vE9PW2MKqUdhWhrAgpiePd9eFN-Jjqy7gNIfK6phiVLeTRHydNuidg2pWVHrvoxWz17k8W36XbOkjz_WPCY30X8zOEGiAFh2G43ZzNe-0NvXQ4OWMkOCZEgpWagD2_MvxtIP1Kg=w1920-h1080" src="" alt="" />
 </div>
 
+https://photos.app.goo.gl/rLQRUnzxhZhKe3vD6
+
 ## Lev album #1 2019
 
 <script src="https://cdn.jsdelivr.net/npm/publicalbum@latest/dist/pa-embed-player.min.js" async></script>
@@ -77,7 +83,7 @@ address: 34/2 m1 Koh Kood, TRAT, 23000, Thailand">
   data-link="https://photos.app.goo.gl/H7jEnLwFRzqNavHy8"
   data-title="MODEL: Lev Lapkin (male) /  6 years / 01.18.2013"
   data-description="Lev Lapkin /   6 years (01.18.2013) sex: MALE
-height: 115 сm (44'') / weight: 24 Kg
+height: 121 сm (44'') / weight: 24 Kg
 chest: 62 (24'') / waist: 47(18'') / hips: 59(23'')
 hair color : light brown
 year color: hazel - green
@@ -101,6 +107,7 @@ address: Bangkok, Thailand">
   <img data-src="https://lh3.googleusercontent.com/T5Q2npB_TTDHzZxlsft0KBvPuMceClbIoumgkaHg3je7Fh2y7oUkNJc80wwLLh-cD-mog0c0JcjMPkt3Xwk6Wnk0RVJiafPjASCB8ou2ds2q4qYtidX68fctsrnrlbs5RydTrAfx1w=w1920-h1080" src="" alt="" />
 </div>
 
+https://photos.app.goo.gl/H7jEnLwFRzqNavHy8
 
 [http://whajungle.github.io](http://whajungle.github.io)
 
