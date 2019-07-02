@@ -1,7 +1,11 @@
 
 <script>
-ss=document.getElementById("stopspam");
-ss.innerHTML=ss.innerHTML.replace(/\(at\)/, '@').replace(/\(dot\)/, '.');
+    var x = document.getElementsByClassName("stopspam");
+    var i;
+    for (i = 0; i < x.length; i++) {
+	x[i].outerHTML=x[i].outerHTML.replace(/\(at\)/g, '@').replace(/\(dot\)/g, '.');
+//	x[i].innerHTML=x[i].innerHTML.replace(/\(at\)/, '@').replace(/\(dot\)/, '.');
+    }
 </script>
 
     <div class="bottom">

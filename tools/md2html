@@ -68,10 +68,26 @@ sub galbum{
 
 s{\!\!\s+(http(s?)://photos\S+)(.*?)\n}{galbum("$1","$3")}egi;
 
+
+sub youemb{
+
+    warn "# yuotube emb @_";
+
+    qq{<iframe height="420" $4 src="$1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>}
+
+}
+
+s{\!\!\s+(http(s?)://(www.)?youtu\S+)(.*?)\n}{youemb("$1","$4")}egi;
+
+
 s{\b(http(s?)://\S+/(\S+\.(rar|xz|list)))}{[$3]($1)}sgi;
 
-s{(?<=\s)(http(s?)://\S+)}{[$1]($1)}sgi;
-#s{(?<!\()(http(s?)://\S+)}{[$1]($1)}sgi;
+
+s{(?<=\s)((\S+)\@(\S+)\.(\w+))}{<a class="stopspam" href="mailto:$2(at)$3(dot)$4">$2(at)$3(dot)$4</a>}sgi;
+
+#s{(?<=\s)(http(s?)://\S+)}{[$1]($1)}sgi;
+
+#s{(\b)(http(s?)://\S+)}{<a href="$1">$1</a>}sgi;
 
 
 our %names;

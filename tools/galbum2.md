@@ -1,0 +1,28 @@
+# ABOUT
+
+galbum2 - its a simple photos albums extractor converter from https://photos.google.com
+to simple usable formats like a txt, plain text, markdown, html.
+
+no need any instalation or any deps!
+
+# USAGE
+
+markdown format output
+
+    galbum https://photos.app.goo.gl/VWQ63ZYhNPAA6Maq8 -w > album.md
+
+# LINKS
+
+- [https://github.com/hyphop/galbum2](https://github.com/hyphop/galbum2)
+
+# AUTHOR
+
+    ## hyphop ##
+
+# POD ERRORS
+
+Hey! **The above document had some coding errors, which are explained below:**
+
+- Around line 33:
+
+    You forgot a '=back' before '=head1'

@@ -1,0 +1,506 @@
+#!/usr/bin/perl
+
+use common::sense;
+
+## hyphop ##
+
+#https://photos.app.goo.gl/VWQ63ZYhNPAA6Maq8
+
+=pod
+
+=head1 ABOUT
+
+galbum2 - its a simple photos albums extractor converter from https://photos.google.com
+to simple usable formats like a  plain text, markdown, html.
+
+no need any instalation or any deps! no gui easy usage via command line.
+
+easy custom via command args and templates
+
+=head1 USAGE
+
+just one share link to album like a https://photos.app.goo.gl/_17chars_H_A_S_H_
+
+    galbum SRC [args] > output
+
+markdown format output
+
+    galbum https://photos.app.goo.gl/VWQ63ZYhNPAA6Maq8 -w > album.md
+
+=head1 ARGS
+
+    -w 		markdown output
+    -s		add pace after each photo
+    -x 		html output
+    -W	WIDTH	force photo width
+    -H	HEIGHT	force photo height
+    -M		meta output [ 1|2|stderr|stdout|no]
+    -q		be quiet
+    -S		no source
+    -T		no title
+    -X		no text
+    -C		no count
+    -P		only photos same as -S -T -X -C
+    -MX	NUM	max photo perl line
+    -BGI xxxxxx bg color
+
+=head1 LINKS
+
+=over
+
+=item *
+
+L<https://github.com/hyphop/galbum2>
+
+=head1 AUTHOR
+
+    ## hyphop ##
+
+=cut
+
+sub TEXT(){ 0 }
+sub WIKI(){ 1 }
+sub HTML(){ 2 }
+
+our %opts;
+
+$opts{BGI} = "#fff";
+
+our $img_num=0;
+our $img_width='';
+our $img_height='';
+
+our $bytes;
+our $data;
+
+my $Hm;
+my $Wi;
+
+
+open OUT, ">&STDOUT";
+
+sub warn_{
+    return if $opts{silent};
+    warn @_;
+}
+
+$SIG{__WARN__} = \&warn_;
+
+##
+
+sub help_{
+    warn "[i] help $0\n";
+    system "perldoc" => $0;
+    exit 0;
+}
+
+our $ARGS = join "" => @ARGV;
+
+    if ( $ARGS =~ /--md/ ) { 
+    `perldoc -o Markdown "$0" > "$0.md"`;
+    `perldoc -o text "$0" > "$0.txt"`;
+     exit 0
+    }
+
+    help_ if  $ARGS =~ /--help/;
+    die "USAGE: galbum2 SRC [args] [--help]\n" if  $ARGS eq "";
+    
+##
+sub add_{
+    my $pics = shift;
+#    warn "[i] $2 - $3 x $4";
+    push @$pics, [@_];
+}
+
+
+
+sub parse_{
+#   $_[0] data
+#   $_[1] pics
+    my $meta = $_[2];
+
+    #<meta property="og:title" content="Lev - kids model - 6 year - 121cm">
+
+    $_[0] =~ s{og:title\"\s+content=\"(.+?)\"}{ $meta->{title} = $1; '' }seg;
+    $_[0] =~ s{\[\"([^/]+)\"\,\[\"(https.+?)\",(\d+),(\d+)}{add_($_[1],$2,$3,$4)}segx;
+
+#    ["AF1QipPCm5sbVETCdOAkiA3aIM9BDmsCg2VGUDdFh5s-",
+
+    #,null,null,null,null,null,null,null,null,null,null,null,{"99218341":[[1,["Lev Lapkin /   6 years (01.18.2013) sex: MALE\nheight: 121 сm (44'') / weight: 22 Kg\nchest: 62 (24'') / waist: 47(18'') / hips: 59(23'')\nhair color : light brown\nyear color: hazel - green\nphone: +66829315202, +66983634676,\nmail: email2tema@gmail.com\nhttps://whajungle.github.io/lev/\naddress: Bangkok, Thailand, Moscow Russia, China, Hongkong"
+
+    $_[0] =~ s{(,null){11}.+\[\"(.+?)\"\]}{ $meta->{text} = $2; '' }seg;
+
+    $meta->{text} =~ s/\\n/\n/sg;
+
+}
+
+
+sub output_TEXT{
+
+    my $pics = $_[0];
+    my $meta = $_[1];
+
+    my $count= scalar @$pics;
+
+    syswrite $opts{METAOUT} => "source: $meta->{src}$opts{ADDSPACE}\n"  unless $opts{NOSOURCE};
+    syswrite $opts{METAOUT} => "$meta->{title}\n"  unless $opts{NOTITLE};
+    syswrite $opts{METAOUT} => "="x(length $meta->{title})  unless $opts{NOTITLE};
+    syswrite $opts{METAOUT} => "\n$opts{ADDSPACE}"  unless $opts{NOTITLE};
+
+    my $WW = "=w$img_width" if $img_width;
+    
+for (0..@$pics-1){
+    my $p = $pics->[$_];
+    my $src= "$p->[0]$WW";
+
+    my $w= $p->[1];
+    my $h= $p->[2];
+
+    syswrite OUT => "$src\n";
+
+}
+    syswrite $opts{METAOUT} =>"$opts{ADDSPACE}";
+
+    syswrite $opts{METAOUT} => "$meta->{text}$opts{ADDSPACE}\n" if ! $opts{NOTEXT} && defined $meta->{text};
+
+    syswrite $opts{METAOUT} =>"photos: $meta->{items}\n" unless $opts{NOCOUNT};
+
+}
+
+sub output_WIKI{
+
+    my $pics = $_[0];
+    my $meta = $_[1];
+
+    my $count= scalar @$pics;
+
+    syswrite OUT => "# $meta->{title}\n$opts{ADDSPACE}" unless $opts{NOTITLE};
+
+    my $WW = "=w$img_width" if $img_width;
+    
+for (0..@$pics-1){
+    my $p = $pics->[$_];
+    my $src= "$p->[0]$WW";
+
+    my $w= $p->[1];
+    my $h= $p->[2];
+
+        syswrite OUT => "![$_]($src)\n$opts{ADDSPACE}";
+
+}
+        syswrite OUT => qq{
+<pre>
+$meta->{text}
+</pre>$opts{ADDSPACE}
+} if  !$opts{NOTEXT} && defined $meta->{text};
+
+    syswrite OUT => "source: [$meta->{src}]($meta->{src})\n$opts{ADDSPACE}" unless $opts{NOSOURCE};
+    syswrite OUT => "_$meta->{items} photos_\n" unless $opts{NOCOUNT};
+}
+
+sub output_HTML{
+
+    my $pics = $_[0];
+    my $meta = $_[1];
+
+    my $count= scalar @$pics;
+
+
+    my $WW = "=w$img_width" if $img_width;
+
+    if ( $opts{H} ){
+    $WW="=h$opts{H}";
+    }
+
+    if ( $opts{D} ){
+    $WW="=h".(2*$opts{H});
+    }
+
+    syswrite OUT => &tpl_html_header($meta);
+
+
+for (0..@$pics-1){
+    my $p = $pics->[$_];
+    my $w= $p->[1];
+    my $h= $p->[2];
+    my $src0= "$p->[0]";
+    my $src1= "$p->[0]=w$w";
+    my $src= "$p->[0]$WW";
+
+	syswrite OUT => qq{<a class="aitm" style="" href="$src1" target="_big">
+<img alt="$_" src="$src" style="height: $opts{H}"/>
+</a>
+};
+
+    syswrite OUT => "<hr/>\n" if $opts{MX} && !( ($_+1) % $opts{MX});
+
+}
+    syswrite OUT => &tpl_html_footer($meta);
+
+}
+
+
+sub write_{
+    my $data = $_[1];
+    my $r = open my $F, ">", $_[0];
+    return undef unless $r;
+    $r = syswrite $F, $$data, length $$data;
+    warn "[i] writed $_[0] -> $r bytes\n";
+}
+
+sub get_{
+
+    # 0 name
+    # 1 ref data
+
+    my $tmp = $_[0];
+    $tmp =~ s{.*://}{}g;
+    $tmp =~ s{\W}{_}g;
+
+    $tmp = "/tmp/$tmp";
+
+    my $data = $_[1];
+
+    my $r;
+    my $F;
+    my $cached;
+
+    if ( $cached = -s $tmp && $opts{NOCACHE} ){
+	warn "[i] clear cache $tmp\n";
+	unlink $tmp;
+    }
+
+    if ( $cached = -s $tmp ) {
+	warn "[i] read $cached bytes from cache $_[0] <- $tmp\n";
+	$r = open $F, "$tmp";
+	$cached = 1;
+    } else {
+	warn "[i] download $_[0] -> $tmp\n";
+	$r = open $F, "-|", qw/curl -L -s/, $_[0];
+    }
+    return undef unless $r;
+
+    while ( $r = sysread $F, $$data, 4096, length $$data ) { 
+	$bytes += $r;
+    }
+
+    write_($tmp, $data) unless $cached;
+    warn "[i] downloaded $bytes bytes\n" unless $cached;
+
+    close $F;
+
+    return $bytes
+
+}
+
+#	&{$_[2]}($_)
+
+sub parse_links{
+    my $s = $_[0];
+    $s =~ s{(?<=\s)((\S+)\@(\S+)\.(\w+))}{<a class="stopspam" href="mailto:$2(at)$3(dot)$4">$2(at)$3(dot)$4</a>}sgi;
+    $s =~ s{(?<=\s)(http(s?)://\S+)}{<a href="$1">$1</a>}sgi;
+    
+    $s
+}
+
+sub tpl_html_footer{
+qq{
+</div>
+}
+.
+( $opts{NOTEXT} ? "" : "<pre class=text>".parse_links($_[0]->{text})."<pre>" )
+.
+( $opts{NOSOURCE} ? "" : "<div class=source>
+<img src='https://ssl.gstatic.com/images/branding/product/1x/photos_16dp.png'/>
+<a target='_source' href='$_[0]->{src}'>$_[0]->{src}</a><div>" )
+.
+q{
+
+</div>
+<script>
+    var x = document.getElementsByClassName("stopspam");
+    var i;
+    for (i = 0; i < x.length; i++) {
+    x[i].outerHTML=x[i].outerHTML.replace(/\(at\)/g, '@').replace(/\(dot\)/g, '.');
+    }
+</script>
+}
+}
+
+sub tpl_html_header{qq{<style>
+
+hr {
+    float: none;
+    clear: both;
+    border: none;
+    width: 100%;
+    height: 0px;
+    padding: 0px;
+    margin: 0px;
+}
+
+	.aitm{
+	    float: left;
+	    background: $opts{BGI};
+	    display: block;
+	    padding: 2px;
+	    border: 0px solid #a00;
+	}
+	.albm{
+	    min-height: 10em;
+	    margin-left: auto;
+	    margin-right: auto;
+	    display: table-cell;
+	    vertical-align: middle;
+	    horizontal-align: middle;
+	    align-items: center;
+	    justify-content: center;
+    	    background: $opts{BGI};
+	    border: 0px solid #000;
+	}
+</style>
+<div class="apage">
+}
+.
+( $opts{NOTITLE} ? "" : "<h1>$_[0]->{title}</h1>" )
+.
+q{
+<div class="albm">
+}
+}
+
+
+my @SRC;
+my @FILES;
+my @args;
+
+for (@ARGV) {
+    if (/^http/ ) {
+	push @SRC => $_;
+	next;
+    }
+    if ( -s $_ ) { 
+	push @FILES, $_;
+	next;
+    }
+    push @args, $_;
+}
+
+open $opts{METAOUT}, ">&STDERR";
+
+unless ( $opts{MODE} ) {
+    $opts{MODE} = TEXT;
+    $opts{mode} = 'TEXT';
+}
+
+for (0..$#args) {
+#    warn "[arg] $_ : $args[$_]\n";
+
+
+
+    if ( $args[$_] eq '-q' ) {
+	$opts{silent} = 1;
+    }
+
+    if ( $args[$_] eq '-W' ) {
+	$img_width=$args[$_+1];
+    }
+
+    if ( $args[$_] eq '-H' ) {
+	$opts{H}=$args[$_+1];
+    }
+
+    if ( $args[$_] eq '-D' ) {
+	$opts{D}=$args[$_+1];
+	$opts{D}//=2;
+    }
+
+    if ( $args[$_] eq '-x' ) {
+	$opts{MODE} = HTML;
+	$opts{mode} = 'HTML';
+	if ( $args[$_+1] =~ /^\d+$/ ) {
+	    $img_width=$args[$_+1];
+	}
+    }
+    if ( $args[$_] eq '-s' ) {
+	$opts{ADDSPACE} = "\n";
+    }
+
+    if ( $args[$_] eq '-r' ) {
+	$opts{NOCACHE} = 1;
+    }
+
+    if ( $args[$_] eq '-S' ) {
+	$opts{NOSOURCE} = 1;
+    }
+
+    if ( $args[$_] eq '-X' ) {
+	$opts{NOTEXT} = 1;
+    }
+
+    if ( $args[$_] eq '-C' ) {
+	$opts{NOCOUNT} = 1;
+    }
+
+    if ( $args[$_] eq '-T' ) {
+	$opts{NOTITLE} = 1;
+    }
+
+    if ( $args[$_] eq '-BGI' ) {
+	$opts{BGI} = "#".$args[$_+1] if $args[$_+1];
+    }
+
+    if ( $args[$_] eq '-MX' ) {
+	$opts{MX} = $args[$_+1] if $args[$_+1];
+    }
+
+    if ( $args[$_] eq '-P' ) {
+	$opts{NOTITLE} = 1;
+	$opts{NOCOUNT} = 1;
+	$opts{NOTEXT} = 1;
+	$opts{NOSOURCE} = 1;
+    }
+
+
+    if ( $args[$_] eq '-M' ) {
+
+	open $opts{METAOUT}, ">/dev/null" if $args[$_+1] =~ /^n/;
+	open $opts{METAOUT}, ">&STDOUT" if $args[$_+1] =~ /out|1/;
+	open $opts{METAOUT}, ">&STDERR" if $args[$_+1] =~ /err|2/;
+
+    }
+
+    if ( $args[$_] eq '-w' ) {
+	$opts{MODE} = WIKI;
+	$opts{mode} = 'WIKI';
+	if ( $args[$_+1] =~ /^\d+$/ ) {
+	    $img_width=$args[$_+1];
+	}
+    }
+}
+
+warn "[i] args: @args\n";
+warn "[i] src: @SRC + @FILES\n";
+
+for (@SRC) {
+    my $c;
+    my $bytes = get_($_ => \$c);
+    my $pics = [];
+    my $meta = { src=> "$_" };
+    parse_($c => $pics, $meta) if $bytes;
+    $meta->{items} = scalar @$pics;
+    if ( @$pics ) {
+
+	warn "[i] mode: $opts{mode}\n";
+
+	if ($opts{MODE} == WIKI ) {
+	    output_WIKI($pics,$meta)
+	} elsif ($opts{MODE} == HTML ) {
+	    output_HTML($pics,$meta)
+	} else {
+	    output_TEXT($pics,$meta)
+	}
+
+    }
+}
+

@@ -1,0 +1,10 @@
+#!/bin/sh
+
+a=https://photos.app.goo.gl/UBiKjjAKwibeXdSXA
+o=whajungle
+
+../tools/galbum2 $a -M 1 -s > $o.txt
+../tools/galbum2 $a -w  > $o.md
+../tools/galbum2 $a -x -H 440 > $o.html
+
+
