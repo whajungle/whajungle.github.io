@@ -29,11 +29,7 @@ img[alt=lev]{
 
 <hr>
 
-Lev - photos album
-
-!! https://photos.app.goo.gl/VWQ63ZYhNPAA6Maq8 -x 303
-
-<hr>
+!!https://photos.app.goo.gl/JxkfsgoESvcFykmm8 -x -MX 4 -H 320 -D 2 -r
 
 <!--
 ![lev whajungle](../pics/lev_bio_1.jpg)
@@ -41,13 +37,11 @@ Lev - photos album
 
 ## introduce
 
-+ [Lev - about me - eng #2](https://youtu.be/lZ232HDoOF0)
+[Lev - about me - eng #1](https://youtu.be/md5i8-vGwKU)
+!!https://www.youtube.com/embed/md5i8-vGwKU width=100%
 
-!! https://www.youtube.com/embed/lZ232HDoOF0 width=100%
-
-+ [Lev - about me - rus #1](https://youtu.be/md5i8-vGwKU)
-
-!! https://www.youtube.com/embed/md5i8-vGwKU width=100%
+[Lev - about me - rus #2](https://youtu.be/lZ232HDoOF0)
+!!https://www.youtube.com/embed/lZ232HDoOF0 width=100%
 
 <hr>
 

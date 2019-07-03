@@ -8,7 +8,7 @@ use common::sense;
 
 =pod
 
-=head1 ABOUT GalBumToo
+=head1 ABOUT
 
 galbum2 - its a simple photos albums extractor converter from https://photos.google.com
 to simple usable formats like a  plain text, markdown, html.
@@ -16,10 +16,6 @@ to simple usable formats like a  plain text, markdown, html.
 no need any instalation or any deps! no gui easy usage via command line.
 
 easy custom via command args and templates
-
-=head1 STATUS
-
-as is ! test ! beta ! experimental !
 
 =head1 USAGE
 
@@ -46,8 +42,6 @@ markdown format output
     -C		no count
     -P		only photos same as -S -T -X -C
     -MX	NUM	max photo perl line
-    -D NUM	doble thumb size or *NUM
-    -r 		ignore cache
     -BGI xxxxxx bg color
 
 =head1 LINKS
@@ -125,8 +119,15 @@ sub parse_{
 #   $_[1] pics
     my $meta = $_[2];
 
+    #<meta property="og:title" content="Lev - kids model - 6 year - 121cm">
+
     $_[0] =~ s{og:title\"\s+content=\"(.+?)\"}{ $meta->{title} = $1; '' }seg;
     $_[0] =~ s{\[\"([^/]+)\"\,\[\"(https.+?)\",(\d+),(\d+)}{add_($_[1],$2,$3,$4)}segx;
+
+#    ["AF1QipPCm5sbVETCdOAkiA3aIM9BDmsCg2VGUDdFh5s-",
+
+    #,null,null,null,null,null,null,null,null,null,null,null,{"99218341":[[1,["Lev Lapkin /   6 years (01.18.2013) sex: MALE\nheight: 121 сm (44'') / weight: 22 Kg\nchest: 62 (24'') / waist: 47(18'') / hips: 59(23'')\nhair color : light brown\nyear color: hazel - green\nphone: +66829315202, +66983634676,\nmail: email2tema@gmail.com\nhttps://whajungle.github.io/lev/\naddress: Bangkok, Thailand, Moscow Russia, China, Hongkong"
+
     $_[0] =~ s{(,null){11}.+\[\"(.+?)\"\]}{ $meta->{text} = $2; '' }seg;
 
     $meta->{text} =~ s/\\n/\n/sg;
@@ -206,7 +207,6 @@ sub output_HTML{
 
 
     my $WW = "=w$img_width" if $img_width;
-    my $zoom=1;
 
     if ( $opts{H} ){
     $WW="=h$opts{H}";
@@ -218,26 +218,6 @@ sub output_HTML{
 
     syswrite OUT => &tpl_html_header($meta);
 
-my @row_width;
-my @row_asp;
-my $row=0;
-
-for (0..@$pics-1){
-    my $p = $pics->[$_];
-    my $w= $p->[1];
-    my $h= $p->[2];
-
-    $row_width[$row]+=$w;
-
-    if ( $opts{MX} && !( ($_+1) % $opts{MX}) ) {
-	$row_asp[$row] = $row_width[0]/$row_width[$row];
-	$row++;
-    }
-
-#    warn "[i] row $row width $row_width[$row] / $row_asp[$row]\n";
-}
-
-my $row=0;
 
 for (0..@$pics-1){
     my $p = $pics->[$_];
@@ -247,24 +227,14 @@ for (0..@$pics-1){
     my $src1= "$p->[0]=w$w";
     my $src= "$p->[0]$WW";
 
-#    warn "[i] row $row width $row_width[$row]";
-    
-    my $ha=$opts{H};
-
-    $ha = int ( $opts{H} * $row_asp[$row] ) ;
-
 	syswrite OUT => qq{<a class="aitm" style="" href="$src1" target="_big">
-<img alt="$_" src="$src" style="height: $ha;"/>
+<img alt="$_" src="$src" style="height: $opts{H}"/>
 </a>
 };
 
-    if ( $opts{MX} && !( ($_+1) % $opts{MX}) ) {
-	syswrite OUT => "<hr/>\n";
-	$row++;
-    }
+    syswrite OUT => "<hr/>\n" if $opts{MX} && !( ($_+1) % $opts{MX});
 
 }
-
     syswrite OUT => &tpl_html_footer($meta);
 
 }
@@ -339,10 +309,10 @@ qq{
 </div>
 }
 .
-( $opts{NOTEXT} ? "" : "<pre class=text>".parse_links($_[0]->{text})."</pre>" )
+( $opts{NOTEXT} ? "" : "<pre class=text>".parse_links($_[0]->{text})."<pre>" )
 .
 ( $opts{NOSOURCE} ? "" : "<div class=source>
-<a target='_source' href='$_[0]->{src}'>$ICO$_[0]->{src}</a></div>" )
+<a target='_source' href='$_[0]->{src}'>$ICO$_[0]->{src}</a><div>" )
 .
 q{
 
@@ -372,46 +342,31 @@ hr {
 	.aitm{
 	    float: left;
 	    background: $opts{BGI};
-	    display: table-cell;
+	    display: block;
 	    padding: 2px;
 	    border: 0px solid #a00;
 	}
-	.apage pre, .albm , .source {
-	    clear: both;
-	    margin-left: auto;
-	    margin-right: auto;
-	    display: table;
-	    vertical-align: middle;
-	    horizontal-align: middle;
-	    align-items: center;
-	    justify-content: center;
-	}
-
-	.apage .source {
-	    align-items: right;
-	    justify-content: right;
-	}
-
 	.albm{
-/*
 	    min-height: 10em;
 	    margin-left: auto;
 	    margin-right: auto;
-	    display: block;
+	    display: table-cell;
 	    vertical-align: middle;
 	    horizontal-align: middle;
 	    align-items: center;
 	    justify-content: center;
     	    background: $opts{BGI};
-*/
 	    border: 0px solid #000;
 	}
 </style>
 <div class="apage">
-<div class="albm">
 }
 .
 ( $opts{NOTITLE} ? "" : "<h1>$_[0]->{title}</h1>" )
+.
+q{
+<div class="albm">
+}
 }
 
 
