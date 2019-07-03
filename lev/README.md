@@ -29,7 +29,9 @@ img[alt=lev]{
 
 <hr>
 
-!!https://photos.app.goo.gl/JxkfsgoESvcFykmm8 -x -MX 4 -H 320 -D 2 -r
+!!https://photos.app.goo.gl/JxkfsgoESvcFykmm8 -x -MX 4 -H 320 -D 2 -S -T
+
+[Lev_Lapkin_6_year_kid_model.pdf](album/Lev_Lapkin_6_year_kid_model.pdf)
 
 <!--
 ![lev whajungle](../pics/lev_bio_1.jpg)
