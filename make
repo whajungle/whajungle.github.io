@@ -2,7 +2,8 @@
 
 ## hyphop ##
 
-for d in . lev lev/album ; do
+#for d in . lev lev/album? ; do
+for d in . lev ; do
 
 NOW=`TZ='UTC' date` tools/md2html \
     ${d}/README.md \

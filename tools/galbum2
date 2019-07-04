@@ -247,11 +247,14 @@ for (0..@$pics-1){
     my $src1= "$p->[0]=w$w";
     my $src= "$p->[0]$WW";
 
-#    warn "[i] row $row width $row_width[$row]";
+    warn "[i] row $row width $row_width[$row] $row_asp[$row]";
     
     my $ha=$opts{H};
 
-    $ha = int ( $opts{H} * $row_asp[$row] ) ;
+#    $ha = $opts{H};
+    $ha = int ( $opts{H} * $row_asp[$row] ) if
+    $row_width[$row] < $row_width[0] && 
+     $row_asp[$row];
 
 	syswrite OUT => qq{<a class="aitm" style="" href="$src1" target="_big">
 <img alt="$_" src="$src" style="height: $ha;"/>

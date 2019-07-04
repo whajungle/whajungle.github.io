@@ -1,19 +1,28 @@
 #!/bin/sh
 
 ## hyphop ##
-for DOC in lev/album/Lev_Lapkin_6_year_kid_model; do
+for DOC in lev/album?/README.md; do
+
+DOCS=${DOC%.*}
+
+echo $DOCS
+
+#continue
 
 DATE=`TZ='UTC' date`
 echo "[DATE] $DATE $DOC"
 
-TITLE=`NOW=$DATE TITLE_OUT=1 tools/md2html $DOC.md $DOC.html`
+#TITLE=`NOW=$DATE TITLE_OUT=1 tools/md2html $DOC $DOCS.html`
+
 echo "[T] $TITLE";
 
-PDF=$DOC.pdf
+#TITLE=Lev_Lapkin_6_year_kid_model
+
+PDF=$DOCS.pdf
 
 echo "[PDF] $PDF";
 #exit 
-wkhtmltopdf --title "$TITLE" $DOC.html $PDF || \
-    xvfb-run -- wkhtmltopdf wkhtmltopdf --title "$TITLE" $DOC.html $PDF
+wkhtmltopdf --title "$TITLE" $DOCS.html $PDF || \
+    xvfb-run -- wkhtmltopdf wkhtmltopdf --title "$TITLE" $DOCS.html $PDF
 
 done

@@ -31,7 +31,11 @@ img[alt=lev]{
 
 !!https://photos.app.goo.gl/JxkfsgoESvcFykmm8 -x -MX 4 -H 320 -D 2 -S -T
 
-[Lev_Lapkin_6_year_kid_model.pdf](album/Lev_Lapkin_6_year_kid_model.pdf)
+[Lev_Lapkin_6_year_kid_model_1.pdf](album1/Lev_Lapkin_6_year_kid_model.pdf) | 
+[Lev_Lapkin_6_year_kid_model_2.pdf](album2/Lev_Lapkin_6_year_kid_model.pdf)
+
+[Lev_Lapkin_6_year_kid_model_1.jpg](album1/Lev_Lapkin_6_year_kid_model.small.jpg) |
+[Lev_Lapkin_6_year_kid_model_1.jpg](album1/Lev_Lapkin_6_year_kid_model.small.jpg)
 
 <!--
 ![lev whajungle](../pics/lev_bio_1.jpg)
@@ -49,13 +53,12 @@ img[alt=lev]{
 
 ## Links
 
++ [YouTube channel](https://www.youtube.com/channel/UC9cdbA_U-ZebuqkDYFeRo8A)
++ Lev photos [album #1](https://photos.app.goo.gl/7pdAZEjizEPMZpqCA) |
+[albums #2](https://photos.app.goo.gl/KRUfnzZkuy7tTJKo8) |
+[albums #3](https://photos.app.goo.gl/H7jEnLwFRzqNavHy8)
 + [Lev photo albums](albums)
-+ [Lev YouTube channel](https://www.youtube.com/channel/UC9cdbA_U-ZebuqkDYFeRo8A)
-+ [Lev photos-album #1](https://photos.app.goo.gl/7pdAZEjizEPMZpqCA)
-+ [Lev photos-albums #2](https://photos.app.goo.gl/KRUfnzZkuy7tTJKo8)
-+ [Lev photos-albums #3](https://photos.app.goo.gl/H7jEnLwFRzqNavHy8)
-+ [Lev page](../)
 
-http://whajungle.github.io | http://whajungle.github.io/lev | https://git.io/fj6uM
+[http://whajungle.github.io](../) | [http://whajungle.github.io/lev]() |  https://git.io/fj6uM
 
 [lev]: https://lh3.googleusercontent.com/bVoncfKx-3s5HKZKRUQF8GIXQIDSNEylsxFOtz6hydra26UUtgOvIM6NJYbcpS3RS2k0KDi9TC7BGiO3BT6dPpmSUqKE6Rsvvc5gEo10wtDG-hMiWuAdd3ZdJaSugQXp-F8-143b9g=w640
