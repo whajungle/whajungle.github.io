@@ -29,13 +29,18 @@ img[alt=lev]{
 
 <hr>
 
-!!https://photos.app.goo.gl/JxkfsgoESvcFykmm8 -x -MX 4 -H 320 -D 2 -S -T
+![lev_photos1](album1/Lev_Lapkin_6_year_kid_model.jpg)
+<style>
+img[alt=lev_photos1]{
+    width: 100%;
+}
+</style>
 
-[Lev_Lapkin_6_year_kid_model_1.pdf](album1/Lev_Lapkin_6_year_kid_model.pdf) | 
-[Lev_Lapkin_6_year_kid_model_2.pdf](album2/Lev_Lapkin_6_year_kid_model.pdf)
+PDF: [Promo1](album1/Lev_Lapkin_6_year_kid_model.pdf) |
+[Promo2](album2/Lev_Lapkin_6_year_kid_model.pdf)
 
-[Lev_Lapkin_6_year_kid_model_1.jpg](album1/Lev_Lapkin_6_year_kid_model.small.jpg) |
-[Lev_Lapkin_6_year_kid_model_2.jpg](album2/Lev_Lapkin_6_year_kid_model.small.jpg)
+JPEG: [Promo1](album1/Lev_Lapkin_6_year_kid_model.jpg) |
+[Promo1 - detailed](album1/Lev_Lapkin_6_year_kid_model.detailed.jpg)
 
 <!--
 ![lev whajungle](../pics/lev_bio_1.jpg)
@@ -60,5 +65,9 @@ img[alt=lev]{
 + [Lev photo albums](albums)
 
 [http://whajungle.github.io](../) | [http://whajungle.github.io/lev]() |  https://git.io/fj6uM
+
+## More wide photos with Lev
+
+!!https://photos.app.goo.gl/JxkfsgoESvcFykmm8 -z -W 1280 -S -T -C
 
 [lev]: https://lh3.googleusercontent.com/bVoncfKx-3s5HKZKRUQF8GIXQIDSNEylsxFOtz6hydra26UUtgOvIM6NJYbcpS3RS2k0KDi9TC7BGiO3BT6dPpmSUqKE6Rsvvc5gEo10wtDG-hMiWuAdd3ZdJaSugQXp-F8-143b9g=w640

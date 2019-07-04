@@ -67,6 +67,7 @@ L<https://github.com/hyphop/galbum2>
 sub TEXT(){ 0 }
 sub WIKI(){ 1 }
 sub HTML(){ 2 }
+sub HTML2(){ 3 }
 
 our %opts;
 
@@ -269,6 +270,52 @@ for (0..@$pics-1){
 }
 
     syswrite OUT => &tpl_html_footer($meta);
+
+}
+
+sub output_HTML2{
+
+    my $pics = $_[0];
+    my $meta = $_[1];
+
+    my $count= scalar @$pics;
+
+
+    my $WW = "=w$img_width" if $img_width;
+    my $zoom=1;
+
+    if ( $opts{H} ){
+    $WW="=h$opts{H}";
+    }
+
+    if ( $opts{D} ){
+    $WW="=h".(2*$opts{H});
+    }
+
+#    syswrite OUT => &tpl_html_header($meta);
+
+
+for (0..@$pics-1){
+    my $p = $pics->[$_];
+    my $w= $p->[1];
+    my $h= $p->[2];
+    my $src0= "$p->[0]";
+    my $src1= "$p->[0]=w$w";
+    my $src= "$p->[0]$WW";
+
+	syswrite OUT => qq{<a class="aitm" style="" href="$src1" target="_big">
+<img alt="$_" src="$src" style="width:100%"/>
+</a>
+};
+
+#    if ( $opts{MX} && !( ($_+1) % $opts{MX}) ) {
+#	syswrite OUT => "<hr/>\n";
+#	$row++;
+#    }
+
+}
+
+#    syswrite OUT => &tpl_html_footer($meta);
 
 }
 
@@ -518,6 +565,11 @@ for (0..$#args) {
 
     }
 
+    if ( $args[$_] eq '-z' ) {
+	$opts{MODE} = HTML2;
+	$opts{mode} = 'HTML2';
+    }
+
     if ( $args[$_] eq '-w' ) {
 	$opts{MODE} = WIKI;
 	$opts{mode} = 'WIKI';
@@ -545,6 +597,8 @@ for (@SRC) {
 	    output_WIKI($pics,$meta)
 	} elsif ($opts{MODE} == HTML ) {
 	    output_HTML($pics,$meta)
+	} elsif ($opts{MODE} == HTML2 ) {
+	    output_HTML2($pics,$meta)
 	} else {
 	    output_TEXT($pics,$meta)
 	}
