@@ -56,6 +56,6 @@ img[alt=lev]{
 + [Lev photos-albums #3](https://photos.app.goo.gl/H7jEnLwFRzqNavHy8)
 + [Lev page](../)
 
-[http://whajungle.github.io](http://whajungle.github.io)
+http://whajungle.github.io | http://whajungle.github.io/lev | https://git.io/fj6uM
 
 [lev]: https://lh3.googleusercontent.com/bVoncfKx-3s5HKZKRUQF8GIXQIDSNEylsxFOtz6hydra26UUtgOvIM6NJYbcpS3RS2k0KDi9TC7BGiO3BT6dPpmSUqKE6Rsvvc5gEo10wtDG-hMiWuAdd3ZdJaSugQXp-F8-143b9g=w640
