@@ -35,7 +35,7 @@ img[alt=lev]{
 [Lev_Lapkin_6_year_kid_model_2.pdf](album2/Lev_Lapkin_6_year_kid_model.pdf)
 
 [Lev_Lapkin_6_year_kid_model_1.jpg](album1/Lev_Lapkin_6_year_kid_model.small.jpg) |
-[Lev_Lapkin_6_year_kid_model_1.jpg](album1/Lev_Lapkin_6_year_kid_model.small.jpg)
+[Lev_Lapkin_6_year_kid_model_2.jpg](album2/Lev_Lapkin_6_year_kid_model.small.jpg)
 
 <!--
 ![lev whajungle](../pics/lev_bio_1.jpg)
