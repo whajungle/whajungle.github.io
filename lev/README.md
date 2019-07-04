@@ -36,11 +36,15 @@ img[alt=lev_photos1]{
 }
 </style>
 
-PDF: [Promo1](album1/Lev_Lapkin_6_year_kid_model.pdf) |
+PDF:
+[Promo1](album1/Lev_Lapkin_6_year_kid_model.pdf) |
 [Promo2](album2/Lev_Lapkin_6_year_kid_model.pdf)
 
-JPEG: [Promo1](album1/Lev_Lapkin_6_year_kid_model.jpg) |
-[Promo1 - detailed](album1/Lev_Lapkin_6_year_kid_model.detailed.jpg)
+JPEG:
+[Promo1](album1/Lev_Lapkin_6_year_kid_model.jpg) |
+[Promo1 - detailed](album1/Lev_Lapkin_6_year_kid_model.detailed.jpg) |
+[Promo2](album2/Lev_Lapkin_6_year_kid_model.jpg) |
+[Promo2 - detailed](album2/Lev_Lapkin_6_year_kid_model.detailed.jpg) |
 
 <!--
 ![lev whajungle](../pics/lev_bio_1.jpg)

@@ -1,0 +1,3 @@
+
+inkscape Lev_Lapkin_6_year_kid_model.svg -i PHOTOS -d 200 -b '#ffffff' -j -e Lev_Lapkin_6_year_kid_model.png Lev_Lapkin_6_year_kid_model.svg
+convert Lev_Lapkin_6_year_kid_model.png Lev_Lapkin_6_year_kid_model.jpg
