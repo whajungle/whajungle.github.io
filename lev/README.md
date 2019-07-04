@@ -55,7 +55,6 @@ JPEG:
 [Lev - about me - rus #1](https://youtu.be/md5i8-vGwKU)
 !!https://www.youtube.com/embed/md5i8-vGwKU width=100%
 
-<hr>
 
 [Lev - about me - eng #1](https://youtu.be/lZ232HDoOF0)
 !!https://www.youtube.com/embed/lZ232HDoOF0 width=100%
