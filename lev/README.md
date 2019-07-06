@@ -1,4 +1,4 @@
-# Lev - kids model
+# Lev - kids model - 6 years
 
 ## bio
 
