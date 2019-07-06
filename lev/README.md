@@ -52,11 +52,15 @@ JPEG:
 
 ## video introduce
 
-[Lev - about me - rus #1](https://youtu.be/md5i8-vGwKU)
+| [Lev - about me - rus #1 - youtube](https://youtu.be/md5i8-vGwKU) 
+| [alt link](https://photos.app.goo.gl/HG4B1pAmnHSEuP7a9)
+| [raw link](https://github.com/whajungle/whajungle.github.io/releases/download/v1/Lev.-.about.me.-.rus.1-md5i8-vGwKU.mp4)
 !!https://www.youtube.com/embed/md5i8-vGwKU width=100%
 
 
-[Lev - about me - eng #1](https://youtu.be/lZ232HDoOF0)
+| [Lev - about me - eng #1 - youtube](https://youtu.be/lZ232HDoOF0)
+| [alt link](https://photos.app.goo.gl/QnDu7CU2nDzKcce66)
+| [raw link](https://github.com/whajungle/whajungle.github.io/releases/download/v1/Lev.-.about.me.-.eng.1-lZ232HDoOF0.mp4)
 !!https://www.youtube.com/embed/lZ232HDoOF0 width=100%
 
 ## Links
