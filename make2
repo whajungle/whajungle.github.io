@@ -1,7 +1,8 @@
 #!/bin/sh
 
 ## hyphop ##
-for DOC in lev/album?/README.md; do
+#for DOC in lev/album?/README.md; do
+for DOC in lev/album3/README.md; do
 
 DOCS=${DOC%.*}
 
@@ -12,7 +13,7 @@ echo $DOCS
 DATE=`TZ='UTC' date`
 echo "[DATE] $DATE $DOC"
 
-#TITLE=`NOW=$DATE TITLE_OUT=1 tools/md2html $DOC $DOCS.html`
+TITLE=`NOW=$DATE TITLE_OUT=1 tools/md2html $DOC $DOCS.html`
 
 echo "[T] $TITLE";
 

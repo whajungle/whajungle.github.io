@@ -34,7 +34,7 @@ markdown format output
 =head1 ARGS
 
     -w 		markdown output
-    -s		add pace after each photo
+    -s		add place after each photo
     -x 		html output
     -W	WIDTH	force photo width
     -H	HEIGHT	force photo height

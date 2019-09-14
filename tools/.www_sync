@@ -1,0 +1,5 @@
+#!/bin/sh
+
+## hyphop ##
+
+rsync -av --exclude .git ../../whajungle.github.io root@de6:/home/sys2info.test/users

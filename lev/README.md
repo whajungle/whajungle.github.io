@@ -21,6 +21,7 @@ img[alt=lev]{
 + year color: hazel - green
 + locations: Bangkok, Thailand, China, Russia
 + lang: english, russian, thai
++ web: http://wj.txxt.space/lev
 + web: http://whajungle.github.io/lev
 + ![YouTube](https://s.ytimg.com/yts/img/favicon-vfl8qSV2F.ico) [about me - rus #1](https://youtu.be/md5i8-vGwKU)
 + ![YouTube](https://s.ytimg.com/yts/img/favicon-vfl8qSV2F.ico) [about me - eng #1](https://youtu.be/lZ232HDoOF0)
