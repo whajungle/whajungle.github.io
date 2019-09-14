@@ -2,7 +2,7 @@
 
 ## hyphop ##
 #for DOC in lev/album?/README.md; do
-for DOC in lev/album3/README.md; do
+for DOC in lev/albums/README.md; do
 
 DOCS=${DOC%.*}
 
