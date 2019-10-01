@@ -1,0 +1,9 @@
+#!/bin/sh
+
+## hyphop ##
+
+OUT=${1%.*}.jpg
+
+convert "$1" -quality 95 "$OUT"
+
+echo "<a href='$OUT'><img src='$OUT'/></a><hr>" >> index.html

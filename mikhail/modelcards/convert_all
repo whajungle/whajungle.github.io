@@ -1,0 +1,6 @@
+#!/bin/sh
+
+## hyphop ##
+
+echo "<h1>MISHA model cards</h1>" > index.html
+find *.png -exec ./convert_pic {} \;

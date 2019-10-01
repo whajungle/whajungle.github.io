@@ -2,9 +2,10 @@
 
 ## hyphop ##
 
+for d in . lev  ; do
 #for d in . lev lev/album? ; do
-for d in lev/albums ; do
-for d in . lev brothers mikhail ; do
+#for d in lev/albums ; do
+#for d in . lev brothers mikhail ; do
 
 NOW=`TZ='UTC' date` tools/md2html \
     ${d}/README.md \
