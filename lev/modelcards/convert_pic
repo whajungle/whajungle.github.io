@@ -1,0 +1,5 @@
+#!/bin/sh
+
+## hyphop ##
+
+convert $1 -quality 95 ${*%.*}.jpg

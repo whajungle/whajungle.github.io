@@ -1,0 +1,5 @@
+#!/bin/sh
+
+## hyphop ##
+
+find *.png -exec ./convert_pic {} \;
